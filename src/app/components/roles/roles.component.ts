@@ -1,17 +1,20 @@
 import { HttpClient } from '@angular/common/http';
 import { Component, OnInit, inject } from '@angular/core';
 import { FormsModule } from '@angular/forms';
+import { ApiResponseModel, IRole } from '../../model/interface/role';
+import { CommonModule } from '@angular/common';
 
 @Component({
   selector: 'app-roles',
-  imports: [FormsModule],
+  imports: [FormsModule, CommonModule],
   templateUrl: './roles.component.html',
   styleUrl: './roles.component.css',
 })
 export class RolesComponent implements OnInit {
+  roleList: IRole[] = [];
   http = inject(HttpClient);
   ngOnInit(): void {
-    alert('Hii');
+    this.getAllRoles();
   }
 
   // constructor(private http: HttpClient){
@@ -19,7 +22,13 @@ export class RolesComponent implements OnInit {
   // }
 
   getAllRoles() {
-    // this.http.get();
+    this.http
+      .get<ApiResponseModel>(
+        'https://freeapi.miniprojectideas.com/api/ClientStrive/GetAllRoles'
+      )
+      .subscribe((res: ApiResponseModel) => {
+        this.roleList = res.data;
+      });
   }
 
   firstName: string = 'Angular tutorial';

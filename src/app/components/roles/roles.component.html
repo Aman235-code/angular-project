@@ -1,7 +1,29 @@
-<p>roles works!</p>
+<div class="row">
+  <div class="col-12">
+    <table class="table table-bordered">
+      <thead>
+        <tr>
+          <th>Sr. No</th>
+          <th>Role Name</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let role of roleList;let srno=index;">
+          <td>{{srno+1}}</td>
+          <td>{{role.role}}</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+
+
+
+
+<!-- <p>roles works!</p> -->
 
 <!-- interpolation  -->
-<div class="row">
+<!-- <div class="row">
   <div class="col-3">
     <p> {{firstName}} </p>
   </div>
@@ -17,16 +39,16 @@
   <div class="col-3">
     <p>{{selectedState}}</p>
   </div>
-</div>
+</div> -->
 
 <!-- property binding  -->
-<div class="row">
+<!-- <div class="row">
   <div class="col-3">
     <input type="text" [value]="firstName" name="" class="form-control" id="">
   </div>
-  <div class="col-3">
-    <!-- 2 way data binding using ngmodel  -->
-    <input type="text" name="" [(ngModel)]="firstName" id="">
+  <div class="col-3"> -->
+<!-- 2 way data binding using ngmodel  -->
+<!-- <input type="text" name="" [(ngModel)]="firstName" id="">
   </div>
   <div class="col-3">
     <input [type]="inputType">
@@ -38,14 +60,14 @@
       <option value="GOA">Goa</option>
     </select>
   </div>
-</div>
+</div> -->
 
 <!-- event binding  -->
-<div class="row">
+<!-- <div class="row">
   <div class="col-3">
     <button class="btn btn-success" (click)="showWelcomeAlert()">Show Alert</button>
   </div>
   <div class="col-3">
     <button class="btn btn-success" (click)="showMessage('Welcome React')">Show React Message</button>
   </div>
-</div>
+</div> -->
