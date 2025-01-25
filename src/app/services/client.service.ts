@@ -13,19 +13,19 @@ export class ClientService {
 
   getAllClients(): Observable<ApiResponseModel> {
     return this.http.get<ApiResponseModel>(
-      environment.API_URL + 'GetAllDesignation'
+      environment.API_URL + 'GetAllClients'
     );
   }
 
   addUpdate(obj: Client): Observable<ApiResponseModel> {
     return this.http.post<ApiResponseModel>(
-      environment.API_URL + 'GetAllDesignation',
+      environment.API_URL + 'AddUpdateClient',
       obj
     );
   }
 
   deleteClientById(id: number): Observable<ApiResponseModel> {
-    return this.http.get<ApiResponseModel>(
+    return this.http.delete<ApiResponseModel>(
       environment.API_URL + 'DeleteClientByClientId?clientId=' + id
     );
   }

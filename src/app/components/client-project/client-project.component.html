@@ -1,4 +1,4 @@
-<div class="row">
+<!-- <div class="row">
   <div class="col-8">
     <div class="card">
       <div class="card-header bg-success">
@@ -54,17 +54,7 @@
               <label for="">Person Name</label>
               <input type="text" #personName="ngModel" minlength="5" required [(ngModel)]=" clientObj.contactPersonName"
                 name="contactPersonName" class="form-control">
-              @if (personName.touched) {
-              <div class="text-danger">
-                @if(personName?.errors?.['required']){
-                <span>This is required</span>
-                }
-                @if (personName?.errors?.['minlength']) {
-                <span>Min 5 characters required</span>
-                }
 
-              </div>
-              }
 
             </div>
 
@@ -131,4 +121,4 @@
       </div>
     </div>
   </div>
-</div>
+</div> -->
