@@ -1,4 +1,4 @@
-<!-- <div class="row">
+<div class="row">
   <div class="col-8">
     <div class="card">
       <div class="card-header bg-success">
@@ -19,19 +19,7 @@
                 </tr>
               </thead>
               <tbody>
-                @for (item of clientList; track $index) {
-                <tr>
-                  <td>{{$index+1}}</td>
-                  <td>{{item.contactPersonName}}</td>
-                  <td>{{item.companyName}}</td>
-                  <td>{{item.contactNo}}</td>
-                  <td>{{item.city}}</td>
-                  <td>
-                    <button class="btn btn-primary" (click)="onEdit(item)">Edit</button>
-                    <button class="btn btn-danger mx-2" (click)="onDelete(item.clientId)">Delete</button>
-                  </td>
-                </tr>
-                }
+
               </tbody>
             </table>
           </div>
@@ -47,68 +35,74 @@
         New Client
       </div>
       <div class="card-body">
-        <form action="" #form="ngForm">
+        <form action="" [formGroup]="projectForm">
           <div class="row">
 
             <div class="col-6">
-              <label for="">Person Name</label>
-              <input type="text" #personName="ngModel" minlength="5" required [(ngModel)]=" clientObj.contactPersonName"
-                name="contactPersonName" class="form-control">
-
-
+              <label for="">Project Name</label>
+              <input type="text" formControlName="projectName" class="form-control">
             </div>
 
             <div class="col-6">
-              <label for="">Company Name</label>
-              <input type="text" [(ngModel)]="clientObj.companyName" name="companyName" class="form-control">
+              <label for="">Start Date</label>
+              <input type="date" formControlName="startDate" class="form-control">
             </div>
 
             <div class="col-6">
-              <label for="">Contact Number</label>
-              <input type="text" [(ngModel)]="clientObj.contactNo" name="contactNo" class="form-control">
+              <label for="">Expected End Date</label>
+              <input type="date" formControlName="expectedEndDate" class="form-control">
             </div>
 
             <div class="col-6">
-              <label for="">city</label>
-              <input type="text" [(ngModel)]="clientObj.city" name="city" class="form-control">
+              <label for="">Contact Name</label>
+              <input type="text" formControlName="contactPerson" class="form-control">
             </div>
 
             <div class="col-6">
-              <label for="">State</label>
-              <input type="text" [(ngModel)]="clientObj.state" name="state" class="form-control">
+              <label for="">Contact Mobile</label>
+              <input type="text" formControlName="contactPersonContactNo" class="form-control">
             </div>
 
             <div class="col-6">
-              <label for="">PinCode</label>
-              <input type="text" [(ngModel)]="clientObj.pincode" name="pincode" class="form-control">
+              <label for="">Contact Email</label>
+              <input type="text" formControlName="contactPersonEmailId" class="form-control">
             </div>
 
             <div class="col-6">
-              <label for="">Address</label>
-              <textarea name="address" [(ngModel)]="clientObj.address" class="form-control" id=""></textarea>
+              <label for="">Total Employee Count</label>
+              <input type="text" formControlName="totalEmpWorking" class="form-control">
             </div>
 
             <div class="col-6">
-              <label for="">Employee Strength</label>
-              <input type="text" [(ngModel)]="clientObj.employeeStrength" name="employeeStrength" class="form-control">
+              <label for="">Project Costing</label>
+              <input type="text" formControlName="projectCost" class="form-control">
+            </div>
+
+            <div class="col-12">
+              <label for="">Project Description</label>
+              <textarea name="" formControlName="projectDetails" class="form-control" id=""></textarea>
             </div>
 
             <div class="col-6">
-              <label for="">GST Number</label>
-              <input type="text" [(ngModel)]="clientObj.gstNo" name="gstNo" class="form-control">
+              <label for="">Select Client </label>
+              <select name="" class="form-control" formControlName="clientId" id="">
+                <option value="">Select client</option>
+              </select>
             </div>
 
             <div class="col-6">
-              <label for="">Regsitration Number</label>
-              <input type="text" [(ngModel)]="clientObj.regNo" name="regNo" class="form-control">
+              <label for="">Lead By</label>
+              <select name="" class="form-control" formControlName="leadByEmpId" id="">
+                <option value="">Select Employee</option>
+              </select>
             </div>
 
           </div>
           <div class="row pt-2">
             <div class="col-6 text-center">
 
-              <button class="btn btn-success" [disabled]="!form.valid" (click)="onSaveClient()">
-                {{clientObj.clientId != 0 ?'Update Client':'Save Client'}}
+              <button class="btn btn-success">
+                Save
               </button>
             </div>
 
@@ -121,4 +115,4 @@
       </div>
     </div>
   </div>
-</div> -->
+</div>
