@@ -1,15 +1,15 @@
 export class Client {
   clientId: number;
   contactPersonName: string;
-  companyName: String;
-  address: String;
-  city: String;
-  pincode: String;
-  state: String;
+  companyName: string;
+  address: string;
+  city: string;
+  pincode: string;
+  state: string;
   employeeStrength: number;
-  gstNo: String;
-  contactNo: String;
-  regNo: String;
+  gstNo: string;
+  contactNo: string;
+  regNo: string;
 
   constructor() {
     this.clientId = 0;

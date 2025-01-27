@@ -41,6 +41,20 @@
             <div class="col-6">
               <label for="">Project Name</label>
               <input type="text" formControlName="projectName" class="form-control">
+              @if (projectForm.controls['projectName'].touched) {
+
+              <div class="text-danger">
+                @if (projectForm.controls['projectName'].errors?.['required']) {
+                <span>This is required</span>
+                }
+
+                @if (projectForm.controls['projectName'].errors?.['minlength']) {
+                <span>Minimun 4 characters required</span>
+                }
+
+              </div>
+              }
+
             </div>
 
             <div class="col-6">
@@ -87,6 +101,9 @@
               <label for="">Select Client </label>
               <select name="" class="form-control" formControlName="clientId" id="">
                 <option value="">Select client</option>
+                @for (item of clientList; track $index) {
+                <option [value]="item.clientId">{{item.companyName}} - {{item.clientId}}</option>
+                }
               </select>
             </div>
 
@@ -94,6 +111,9 @@
               <label for="">Lead By</label>
               <select name="" class="form-control" formControlName="leadByEmpId" id="">
                 <option value="">Select Employee</option>
+                @for (item of employeeList; track $index) {
+                <option [value]="item.empId">{{item.empName}} - {{item.empCode}}</option>
+                }
               </select>
             </div>
 
@@ -101,7 +121,7 @@
           <div class="row pt-2">
             <div class="col-6 text-center">
 
-              <button class="btn btn-success">
+              <button class="btn btn-success" [disabled]="projectForm.invalid" (click)="onSaveProject()">
                 Save
               </button>
             </div>

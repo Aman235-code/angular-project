@@ -17,6 +17,16 @@ export class ClientService {
     );
   }
 
+  getAllUser() {
+    return this.http.get('https://jsonplaceholder.typicode.com/users');
+  }
+
+  getAllEmployee(): Observable<ApiResponseModel> {
+    return this.http.get<ApiResponseModel>(
+      environment.API_URL + 'GetAllEmployee'
+    );
+  }
+
   addUpdate(obj: Client): Observable<ApiResponseModel> {
     return this.http.post<ApiResponseModel>(
       environment.API_URL + 'AddUpdateClient',
@@ -27,6 +37,13 @@ export class ClientService {
   deleteClientById(id: number): Observable<ApiResponseModel> {
     return this.http.delete<ApiResponseModel>(
       environment.API_URL + 'DeleteClientByClientId?clientId=' + id
+    );
+  }
+
+  addClientProject(obj: Client): Observable<ApiResponseModel> {
+    return this.http.post<ApiResponseModel>(
+      environment.API_URL + 'AddUpdateClientProject',
+      obj
     );
   }
 }
